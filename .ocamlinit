@@ -1,0 +1,6 @@
+open Generator
+open Cnf
+
+let cnf = systematic_cnf "unsat.cnf";;
+let ml = solve cnf;;
+print_model ml;;

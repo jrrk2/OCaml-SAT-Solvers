@@ -35,12 +35,9 @@ let symbols_in_cnf (cnf:cnf) : symbol list =
 
 (* method to print model *)
 let print_model (ml:model) =
-  List.fold_left
-    (fun _ (sym, b) ->
-      print_string sym;
-      print_string " = ";
-      if b then print_string "true" else print_string "false";
-      print_newline ()) () ml
+  List.iter (fun (sym, b) ->
+      print_string (sym^" = ");
+      print_endline (string_of_bool b)) ml
 
 (* method to print cnf *)
 let print_cnf (cnf:cnf) =
